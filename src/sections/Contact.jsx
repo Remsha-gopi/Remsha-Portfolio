@@ -55,12 +55,6 @@ export default function Contact() {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    console.log('EmailJS config check:', {
-      serviceId: !!serviceId,
-      templateId: !!templateId,
-      publicKey: !!publicKey,
-    });
-
     try {
       if (!serviceId || !templateId || !publicKey) {
         throw new Error('EmailJS environment variables are missing');
@@ -89,10 +83,7 @@ export default function Contact() {
     } catch (error) {
       console.error('Email submission error:', error);
       setStatus('error');
-
-      setErrorMessage(
-        error?.text || error?.message || 'Unknown EmailJS error'
-      );
+      setErrorMessage('Something went wrong. Please try again or contact me directly by email.');
     }
   };
 
@@ -276,8 +267,8 @@ export default function Contact() {
                     placeholder="Your Full Name"
                     disabled={status === 'sending'}
                     className={`w-full px-4 py-3 rounded-xl border bg-[#EFF7FF]/70 dark:bg-[#171722]/60 text-[#172033] dark:text-[#F5F5F7] placeholder-[#526174]/50 dark:placeholder-[#A1A1AA]/50 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF] dark:focus:ring-violet-500 transition-colors text-sm ${errors.name
-                      ? 'border-rose-500 focus:border-rose-500'
-                      : 'border-[#D9E8F5] dark:border-[#1F1F2E]'
+                        ? 'border-rose-500 focus:border-rose-500'
+                        : 'border-[#D9E8F5] dark:border-[#1F1F2E]'
                       }`}
                   />
                   {errors.name && (
@@ -302,8 +293,8 @@ export default function Contact() {
                     placeholder="name@example.com"
                     disabled={status === 'sending'}
                     className={`w-full px-4 py-3 rounded-xl border bg-[#EFF7FF]/70 dark:bg-[#171722]/60 text-[#172033] dark:text-[#F5F5F7] placeholder-[#526174]/50 dark:placeholder-[#A1A1AA]/50 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF] dark:focus:ring-violet-500 transition-colors text-sm ${errors.email
-                      ? 'border-rose-500 focus:border-rose-500'
-                      : 'border-[#D9E8F5] dark:border-[#1F1F2E]'
+                        ? 'border-rose-500 focus:border-rose-500'
+                        : 'border-[#D9E8F5] dark:border-[#1F1F2E]'
                       }`}
                   />
                   {errors.email && (
@@ -328,8 +319,8 @@ export default function Contact() {
                     placeholder="Describe your project, opportunity, or idea..."
                     disabled={status === 'sending'}
                     className={`w-full px-4 py-3 rounded-xl border bg-[#EFF7FF]/70 dark:bg-[#171722]/60 text-[#172033] dark:text-[#F5F5F7] placeholder-[#526174]/50 dark:placeholder-[#A1A1AA]/50 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF] dark:focus:ring-violet-500 transition-colors text-sm resize-y ${errors.message
-                      ? 'border-rose-500 focus:border-rose-500'
-                      : 'border-[#D9E8F5] dark:border-[#1F1F2E]'
+                        ? 'border-rose-500 focus:border-rose-500'
+                        : 'border-[#D9E8F5] dark:border-[#1F1F2E]'
                       }`}
                   />
                   {errors.message && (
