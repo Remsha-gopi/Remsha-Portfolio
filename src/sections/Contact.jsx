@@ -83,7 +83,10 @@ export default function Contact() {
     } catch (error) {
       console.error('Email submission error:', error);
       setStatus('error');
-      setErrorMessage('Something went wrong. Please try again or contact me directly by email.');
+
+      setErrorMessage(
+        error?.text || error?.message || 'Unknown EmailJS error'
+      );
     }
   };
 
@@ -93,7 +96,7 @@ export default function Contact() {
       <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-[#4F8CFF]/5 dark:bg-violet-600/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header with 07 — CONTACT */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -115,7 +118,7 @@ export default function Contact() {
 
         {/* Two-column layout on desktop with Framer Motion reveal */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Left Column: Contact Information & Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -266,11 +269,10 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Your Full Name"
                     disabled={status === 'sending'}
-                    className={`w-full px-4 py-3 rounded-xl border bg-[#EFF7FF]/70 dark:bg-[#171722]/60 text-[#172033] dark:text-[#F5F5F7] placeholder-[#526174]/50 dark:placeholder-[#A1A1AA]/50 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF] dark:focus:ring-violet-500 transition-colors text-sm ${
-                      errors.name
+                    className={`w-full px-4 py-3 rounded-xl border bg-[#EFF7FF]/70 dark:bg-[#171722]/60 text-[#172033] dark:text-[#F5F5F7] placeholder-[#526174]/50 dark:placeholder-[#A1A1AA]/50 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF] dark:focus:ring-violet-500 transition-colors text-sm ${errors.name
                         ? 'border-rose-500 focus:border-rose-500'
                         : 'border-[#D9E8F5] dark:border-[#1F1F2E]'
-                    }`}
+                      }`}
                   />
                   {errors.name && (
                     <p className="text-xs text-rose-500 dark:text-rose-400 mt-1.5">{errors.name}</p>
@@ -293,11 +295,10 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="name@example.com"
                     disabled={status === 'sending'}
-                    className={`w-full px-4 py-3 rounded-xl border bg-[#EFF7FF]/70 dark:bg-[#171722]/60 text-[#172033] dark:text-[#F5F5F7] placeholder-[#526174]/50 dark:placeholder-[#A1A1AA]/50 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF] dark:focus:ring-violet-500 transition-colors text-sm ${
-                      errors.email
+                    className={`w-full px-4 py-3 rounded-xl border bg-[#EFF7FF]/70 dark:bg-[#171722]/60 text-[#172033] dark:text-[#F5F5F7] placeholder-[#526174]/50 dark:placeholder-[#A1A1AA]/50 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF] dark:focus:ring-violet-500 transition-colors text-sm ${errors.email
                         ? 'border-rose-500 focus:border-rose-500'
                         : 'border-[#D9E8F5] dark:border-[#1F1F2E]'
-                    }`}
+                      }`}
                   />
                   {errors.email && (
                     <p className="text-xs text-rose-500 dark:text-rose-400 mt-1.5">{errors.email}</p>
@@ -320,11 +321,10 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Describe your project, opportunity, or idea..."
                     disabled={status === 'sending'}
-                    className={`w-full px-4 py-3 rounded-xl border bg-[#EFF7FF]/70 dark:bg-[#171722]/60 text-[#172033] dark:text-[#F5F5F7] placeholder-[#526174]/50 dark:placeholder-[#A1A1AA]/50 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF] dark:focus:ring-violet-500 transition-colors text-sm resize-y ${
-                      errors.message
+                    className={`w-full px-4 py-3 rounded-xl border bg-[#EFF7FF]/70 dark:bg-[#171722]/60 text-[#172033] dark:text-[#F5F5F7] placeholder-[#526174]/50 dark:placeholder-[#A1A1AA]/50 focus:outline-none focus:ring-2 focus:ring-[#4F8CFF] dark:focus:ring-violet-500 transition-colors text-sm resize-y ${errors.message
                         ? 'border-rose-500 focus:border-rose-500'
                         : 'border-[#D9E8F5] dark:border-[#1F1F2E]'
-                    }`}
+                      }`}
                   />
                   {errors.message && (
                     <p className="text-xs text-rose-500 dark:text-rose-400 mt-1.5">{errors.message}</p>
