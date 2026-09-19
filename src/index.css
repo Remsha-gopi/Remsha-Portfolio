@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Refined Light Theme */
+    --bg-page: #FAFAFA;
+    --surface-card: #FFFFFF;
+    --surface-secondary: #F4F4F5;
+    --text-primary: #18181B;
+    --text-secondary: #52525B;
+    --border-color: #E4E4E7;
+    --accent-primary: #8B5CF6;
+    --accent-secondary: #0891B2;
+    --accent-cyan: #22D3EE;
+    --accent-hover: #7C3AED;
+    --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 0 15px -3px rgba(139, 92, 246, 0.04);
+    --badge-bg: rgba(139, 92, 246, 0.08);
+    --badge-text: #7C3AED;
+    --badge-border: rgba(139, 92, 246, 0.2);
+  }
+
+  html.dark {
+    /* Premium Dark Theme */
+    --bg-page: #0A0A0F;
+    --surface-card: #111118;
+    --surface-secondary: #171722;
+    --text-primary: #F5F5F7;
+    --text-secondary: #A1A1AA;
+    --border-color: #1F1F2E;
+    --accent-primary: #8B5CF6;
+    --accent-secondary: #22D3EE;
+    --accent-cyan: #22D3EE;
+    --accent-hover: #7C3AED;
+    --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 0 15px -3px rgba(139, 92, 246, 0.05);
+    --badge-bg: rgba(139, 92, 246, 0.1);
+    --badge-text: #A78BFA;
+    --badge-border: rgba(139, 92, 246, 0.2);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAFAFA;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #0A0A0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4D4D8;
+  border-radius: 4px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #27273A;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

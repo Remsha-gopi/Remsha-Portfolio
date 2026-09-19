@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/profile.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Remsha Gopi | AI, Data & Software Development</title>
+    <meta name="title" content="Remsha Gopi | AI, Data & Software Development" />
+    <meta name="description" content="Information Technology student building practical solutions across artificial intelligence, data science, data analytics, software development, and web technologies." />
+    <meta name="author" content="Remsha Gopi" />
+    <meta name="theme-color" content="#0A0A0F" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://remshagopi.dev" />
+    <meta property="og:title" content="Remsha Gopi | AI, Data & Software Development" />
+    <meta property="og:description" content="Information Technology student building practical solutions across artificial intelligence, data science, data analytics, software development, and web technologies." />
+    <meta property="og:image" content="/profile.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Remsha Gopi | AI, Data & Software Development" />
+    <meta property="twitter:description" content="Information Technology student building practical solutions across artificial intelligence, data science, data analytics, software development, and web technologies." />
+    <meta property="twitter:image" content="/profile.png" />
+
+    <!-- Google Fonts: Space Grotesk & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Pre-mount theme initialisation to avoid flash -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          if (saved === 'light') {
+            document.documentElement.classList.remove('dark');
+          } else {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-[#F5FAFF] dark:bg-[#0A0A0F] text-[#172033] dark:text-[#F5F5F7] antialiased transition-colors duration-250">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
